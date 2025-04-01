@@ -9,13 +9,13 @@ const Feed = ({ category, searchQuery }) => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
-    // if(category){
-    // let videoListUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&locale=India&maxResults=500&regionCode=IN&videoCategoryId=${category}&key=${API_KEY}`;
-    // }
+    if(category){
+    var videoListUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&locale=India&maxResults=500&regionCode=IN&videoCategoryId=${category}&key=${API_KEY}`;
+    }
 
 
     if (searchQuery && !category) {
-     let videoListUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${encodeURIComponent(
+      videoListUrl = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${encodeURIComponent(
         searchQuery
       )}&key=${API_KEY}&type=video`;
     }
